@@ -3,6 +3,8 @@ import { FlatList, View, StyleSheet } from "react-native";
 import Text from "./Text";
 import Avatar from "./Avatar";
 
+import theme from "../theme";
+
 const repositories = [
 	{
 		id: "jaredpalmer.formik",
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
 		display: "flex",
 	},
 	languageTag: {
-		backgroundColor: "#0366d6",
+		backgroundColor: theme.colors.buttonBackground,
 		color: "white",
 		borderRadius: 3,
 		padding: 3,

@@ -3,6 +3,8 @@ const theme = {
 		textPrimary: "#24292e",
 		textSecondary: "#586069",
 		primary: "#0366d6",
+		buttonBackground: "#0366d6",
+		errorColor: "#d73a4a",
 		appBarBackgroundColor: "#424242",
 	},
 	fontSizes: {
