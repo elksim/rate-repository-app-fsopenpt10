@@ -1,7 +1,7 @@
-import { Text, TextInput, View, Pressable, StyleSheet } from "react-native";
-import { Formik, useField } from "formik";
+import { Text, View, Pressable, StyleSheet } from "react-native";
+import { Formik } from "formik";
 
-import FormikTextInput from "./FormikTextinput";
+import FormikTextInput from "./FormikTextInput";
 import theme from "../theme";
 import * as yup from "yup";
 
