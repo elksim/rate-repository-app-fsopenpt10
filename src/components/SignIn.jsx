@@ -5,6 +5,8 @@ import FormikTextInput from "./FormikTextInput";
 import theme from "../theme";
 import * as yup from "yup";
 
+import useSignIn from "../hooks/useSignIn";
+
 const initialValues = {
 	username: "",
 	password: "",
@@ -55,7 +57,7 @@ const SignInForm = ({ onSubmit }) => {
 			<FormikTextInput
 				name="password"
 				placeholder="password"
-				secureTextEntry={true}
+				// secureTextEntry={true}
 				style={styles.input}
 			/>
 			<Pressable onPress={onSubmit} style={styles.button}>
@@ -66,8 +68,17 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 const SignIn = () => {
-	const onSubmit = (values) => {
-		console.log("signing in !", values);
+	const [signIn] = useSignIn();
+
+	const onSubmit = async (values) => {
+		const { username, password } = values;
+
+		try {
+			const { data } = await signIn({ username, password });
+			console.log("data: ", data);
+		} catch (e) {
+			console.log("error: ", e);
+		}
 	};
 
 	return (
