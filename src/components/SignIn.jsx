@@ -6,6 +6,7 @@ import theme from "../theme";
 import * as yup from "yup";
 
 import useSignIn from "../hooks/useSignIn";
+import AuthStorage from "../utils/authStorage";
 
 const initialValues = {
 	username: "",
@@ -75,7 +76,9 @@ const SignIn = () => {
 
 		try {
 			const { data } = await signIn({ username, password });
-			console.log("data: ", data);
+			const accessToken = `Bearer {data.authenticate.accessToken}`;
+			AuthStorage.setAccessToken(accessToken);
+			console.log("data: ", data.authenticate.accessToken);
 		} catch (e) {
 			console.log("error: ", e);
 		}
