@@ -17,7 +17,15 @@ class AuthStorage {
 	}
 
 	async removeAccessToken() {
-		await AsyncStorage.removeItem(`${this.namespace}.accessToken`);
+		const accessTokenBefore = await AsyncStorage.getItem(
+			`${this.namespace}:accessToken`
+		);
+		console.log("accessTokenBefore: ", accessTokenBefore);
+		await AsyncStorage.removeItem(`${this.namespace}:accessToken`);
+		const accessTokenAfter = await AsyncStorage.getItem(
+			`${this.namespace}:accessToken`
+		);
+		console.log("accessTokenAfter: ", accessTokenAfter);
 	}
 }
 
